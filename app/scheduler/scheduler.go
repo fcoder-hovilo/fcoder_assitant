@@ -1,4 +1,5 @@
 // scheduler/scheduler.go
+// change this scheduler to google calendar api
 
 package scheduler
 
