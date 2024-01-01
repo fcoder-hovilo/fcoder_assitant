@@ -9,7 +9,6 @@ This is a simple Discord bot project written in Go that demonstrates basic bot f
 - [Prerequisites](#prerequisites)
 - [Getting Started](#getting-started)
 - [Configuration](#configuration)
-- [Usage](#usage)
 - [Contributing](#contributing)
 - [License](#license)
 
@@ -44,9 +43,9 @@ The project is organized into the following packages:
     ``` bash
     cd fcoder_assitant
     ```
-3. Install dependencies:
+3. Dockerized Project:
     ``` bash
-    go mod download
+    docker compose up --build
     ```
 
 ## Configuration
@@ -58,14 +57,6 @@ Create a `config.json` file in the `config` directory with the following structu
 }
 ```
 Replace `"YOUR_DISCORD_BOT_TOKEN"` with your actual bot token.
-
-## Usage
-1. Run the bot:
-```bash
-go run main.go
-```
-2. Invite the bot to your Discord server using the bot authorization URL generated when you created the bot on the Discord Developer Portal.
-3. Interact with the bot using the specified prefix and commands.
 
 ## Contributing
 Contributions are welcome! If you find any issues or have suggestions for improvements, feel free to open an issue or create a pull request.
