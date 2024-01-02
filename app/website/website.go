@@ -16,7 +16,7 @@ func StartWebServer(dg *discordgo.Session, config config.Config) {
 	router := mux.NewRouter()
 
 	router.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-		fmt.Fprint(w, "Welcome to the fcoder_assitant's website!")
+		fmt.Fprint(w, "<h1>Welcome to the fcoder_assitant's website!</h1>")
 	})
 
 	fmt.Println("Starting web server on :5000...")
