@@ -1,6 +1,6 @@
-# Discord Bot Project
+# fcoder_assitant
 
-This is a simple Discord bot project written in Go that demonstrates basic bot functionality, command handling, and periodic message scheduling.
+fcoder_assitant the purpose of member management. Replace the manual method. Save time.
 
 ## Table of Contents
 
