@@ -11,6 +11,7 @@ import (
 	"fcoder_assitant/config"
 	"fcoder_assitant/handlers"
 	"fcoder_assitant/scheduler"
+	"fcoder_assitant/website"
 
 	"github.com/bwmarrin/discordgo"
 )
@@ -35,6 +36,9 @@ func main() {
 	dg.AddHandler(func(s *discordgo.Session, m *discordgo.MessageCreate) {
 		handlers.MessageCreate(s, m, config)
 	})
+
+	// Start the web server
+	website.StartWebServer(dg, config)
 
 	err = dg.Open()
 	if err != nil {
