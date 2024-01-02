@@ -10,10 +10,13 @@ RUN ls -l
 RUN go mod download
 RUN go mod tidy
 
-USER chrome
+# Change to root user on Linux
+USER root
+
+# USER chrome
 
 # Autorun chrome
-ENTRYPOINT [ "chrome" ]
+# ENTRYPOINT [ "chrome" ]
 
 # Command to run the application
 CMD ["go", "run", "."]
