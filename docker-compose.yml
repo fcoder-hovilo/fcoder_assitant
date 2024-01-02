@@ -1,10 +1,10 @@
 version: '3'
 
 services:
-  fcoder_assitant:
-    image: fcoder_assitant
+  fcoder_assistant:
+    image: fcoder_assistant
     build: .
     restart: unless-stopped
     ports:
       - "5000:5000"
-
+    command: ["cmd", "/C", "start.bat"]
