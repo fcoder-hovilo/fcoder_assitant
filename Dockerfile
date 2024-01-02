@@ -10,6 +10,13 @@ RUN ls -l
 RUN go mod download
 RUN go mod tidy
 
+# Linux version
+# RUN groupadd -r myuser && useradd -r -g myuser -G audio,video myuser \
+#     && mkdir -p /home/myuser/Downloads \
+#     && chown -R myuser:myuser /home/myuser
+
+# USER myuser
+
 USER chrome
 
 # Autorun chrome
