@@ -45,7 +45,7 @@ The project is organized into the following packages:
     ```
 3. Dockerized Project:
     ``` bash
-    docker compose up --build
+    docker compose up --build # check server at http://localhost:5000/
     ```
 
 ## Configuration
