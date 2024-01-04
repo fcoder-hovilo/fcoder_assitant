@@ -4,6 +4,7 @@ tasks:
     run:
         desc: Run docker first then start the browser
         cmds:
-            - "sudo docker compose up --build -d"
-            - "sleep 2"
-            - "./app/dev/open-browser"
+            - |
+               cd app/dev/
+               go build open-browser.go
+               ./open-browser
