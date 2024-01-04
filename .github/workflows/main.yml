@@ -25,7 +25,18 @@ jobs:
           go-version: ${{ matrix.go-version }}
       - name: Build Go application
         run: go build -o CHANGE_ME main.go
-        
+
+      - name: Deploy to SFTP
+        with:
+          username: ${{ secrets.FTP_USERNAME }}
+          server: ${{ secrets.FTP_SERVER }}
+          port: ${{ secrets.FTP_PORT }}
+          local_path: './app/*'
+          remote_path: '.'
+          sftp_only: true
+          password: ${{ secrets.FTP_PASSWORD }}
+        run: echo $username@$server:$port ___ $password
+
       - name: Checkout
         uses: actions/checkout@v3
       - name: Deploy to SFTP
