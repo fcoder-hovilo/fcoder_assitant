@@ -3,6 +3,19 @@
 # Set the Go binary name
 binary_name="bot_fcoder"
 
+# Check if Go is installed
+if ! command -v go &> /dev/null; then
+  echo "Go is not installed. Installing Go..."
+
+  # Install Go using apt-get
+  sudo apt-get update
+  sudo apt-get install -y golang
+  if [ $? -ne 0 ]; then
+    echo "Failed to install Go. Please check your system and try installing Go manually."
+    exit 1
+  fi
+fi
+
 # Build the Go program
 go build -o $binary_name main.go
 
