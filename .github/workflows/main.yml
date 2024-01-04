@@ -9,6 +9,9 @@ on:
 jobs:
   deploy_job:
     runs-on: ubuntu-latest
+    environment: 
+      name: sftp-deploy
+      url: https://github.co
     name: deploy
     steps:
         - name: Checkout
@@ -22,10 +25,10 @@ jobs:
         - name: deploy
           uses: pressidium/lftp-mirror-action@v1
           with:
-            host: ${{ sftp-deploy.secrets.FTP_SERVER }}
-            port: ${{ sftp-deploy.secrets.FTP_PORT }}
-            user: ${{ sftp-deploy.secrets.FTP_USERNAME }}
-            pass: ${{ sftp-deploy.secrets.FTP_PASSWORD }}
+            host: ${{ secrets.FTP_SERVER }}
+            port: ${{ secrets.FTP_PORT }}
+            user: ${{ secrets.FTP_USERNAME }}
+            pass: ${{ secrets.FTP_PASSWORD }}
             localDir: './app/*'
             remoteDir: '/home/container/'
             reverse: true
