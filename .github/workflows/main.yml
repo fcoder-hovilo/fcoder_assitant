@@ -16,21 +16,15 @@ jobs:
     steps:
         - name: Checkout
           uses: actions/checkout@v3
-        - name: Debug
-          run: |
-            env
-            printenv
-            echo "Secrets: ${{ toJson(secrets) }}"
-
-        - name: deploy
-          uses: pressidium/lftp-mirror-action@v1
+        - name: Deploy file
+          uses: wlixcc/SFTP-Deploy-Action@v1.2.4
           with:
-            host: ${{ secrets.FTP_SERVER }}
+            username: ${{ secrets.FTP_USERNAME }}
+            server: ${{ secrets.FTP_SERVER }}
             port: ${{ secrets.FTP_PORT }}
-            user: ${{ secrets.FTP_USERNAME }}
-            pass: ${{ secrets.FTP_PASSWORD }}
-            localDir: './app/*'
-            remoteDir: '/home/container/'
-            reverse: true
+            local_path: './app/*'
+            remote_path: '/home/container/'
+            sftp_only: true
+            password: ${{ secrets.FTP_PASSWORD }}
           
           
