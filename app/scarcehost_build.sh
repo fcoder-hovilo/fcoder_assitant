@@ -8,8 +8,8 @@ if ! command -v go &> /dev/null; then
   echo "Go is not installed. Installing Go..."
 
   # Install Go using apt-get
-  sudo apt-get update
-  sudo apt-get install -y golang
+  apt-get update
+  apt-get install -y golang
   if [ $? -ne 0 ]; then
     echo "Failed to install Go. Please check your system and try installing Go manually."
     exit 1
