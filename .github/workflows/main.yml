@@ -22,12 +22,17 @@ jobs:
             echo "FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}"
 
         - name: deploy
+          env:
+            FTP_SERVER:  ${{ secrets.FTP_SERVER }}
+            FTP_PORT: ${{ secrets.FTP_PORT }}
+            FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
+            FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
           uses: pressidium/lftp-mirror-action@v1
           with:
-            host: ${{ secrets.FTP_SERVER }}
-            port: ${{ secrets.FTP_PORT }}
-            user: ${{ secrets.FTP_USERNAME }}
-            pass: ${{ secrets.FTP_PASSWORD }}
+            host: ${#FTP_SERVER}
+            port: ${#FTP_PORT}
+            user: ${#FTP_USERNAME}
+            pass: ${#FTP_PASSWORD}
             localDir: './app/*'
             remoteDir: '/home/container/'
             reverse: true
