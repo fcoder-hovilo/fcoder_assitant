@@ -26,11 +26,13 @@ jobs:
           go-version: ${{ matrix.go-version }}
 
       - name: Build Go application
+        id: build
         run: go build -o CHANGE_ME main.go
 
   deploy:
     runs-on: ubuntu-latest
     needs: build
+    if: success()
     environment: 
       name: sftp-deploy
       url: https://github.com
