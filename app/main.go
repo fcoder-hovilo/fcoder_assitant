@@ -38,7 +38,7 @@ func main() {
 	})
 
 	// Start the web server
-	website.StartWebServer(dg, config)
+	go website.StartWebServer(dg, config)
 
 	err = dg.Open()
 	if err != nil {
