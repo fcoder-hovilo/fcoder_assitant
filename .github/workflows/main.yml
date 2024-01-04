@@ -6,7 +6,6 @@ on:
       - main
   workflow_dispatch:
 
-
 jobs:
   deploy_job:
     runs-on: ubuntu-latest
@@ -14,6 +13,13 @@ jobs:
     steps:
         - name: Checkout
           uses: actions/checkout@v3
+
+        - name: Echo Secrets
+          run: |
+            echo "FTP_SERVER: ${{ secrets.FTP_SERVER }}"
+            echo "FTP_PORT: ${{ secrets.FTP_PORT }}"
+            echo "FTP_USERNAME: ${{ secrets.FTP_USERNAME }}"
+            echo "FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}"
 
         - name: deploy
           uses: pressidium/lftp-mirror-action@v1
