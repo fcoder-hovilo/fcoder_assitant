@@ -4,13 +4,14 @@ fcoder_assitant the purpose of member management. Replace the manual method. Sav
 
 ## Table of Contents
 
-- [Features](#features)
-- [Project Structure](#project-structure)
-- [Prerequisites](#prerequisites)
-- [Getting Started](#getting-started)
-- [Configuration](#configuration)
-- [Contributing](#contributing)
-- [License](#license)
+- [fcoder\_assitant](#fcoder_assitant)
+  - [Table of Contents](#table-of-contents)
+  - [Features](#features)
+  - [Project Structure](#project-structure)
+  - [Prerequisites](#prerequisites)
+  - [Getting Started](#getting-started)
+  - [Contributing](#contributing)
+  - [License](#license)
 
 ## Features
 
@@ -29,7 +30,7 @@ The project is organized into the following packages:
 
 ## Prerequisites
 
-- [Go](https://golang.org/doc/install) installed on your machine.
+- [Go](https://golang.org/doc/install) and [go-task](https://taskfile.dev/installation/) installed on your machine.
 - A Discord bot token. You can obtain one by [creating a new bot on Discord](https://discord.com/developers/applications).
 
 ## Getting Started
@@ -43,9 +44,9 @@ The project is organized into the following packages:
     ``` bash
     cd fcoder_assitant
     ```
-3. Dockerized Project:
-    ``` bash
-    docker compose up --build # check server at http://localhost:5000/
+3. Automatically dockerized project and open default browser.
+    ```bash
+    go-task run
     ```
 
 ## Configuration
