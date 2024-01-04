@@ -13,14 +13,6 @@ jobs:
     steps:
         - name: Checkout
           uses: actions/checkout@v3
-  
-
-        - name: Echo Secrets
-          run: |
-            echo "FTP_SERVER: ${{ secrets.FTP_SERVER }}"
-            echo "FTP_PORT: ${{ secrets.FTP_PORT }}"
-            echo "FTP_USERNAME: ${{ secrets.FTP_USERNAME }}"
-            echo "FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}"
         - name: Debug
           run: |
             env
@@ -28,17 +20,12 @@ jobs:
             echo "Secrets: ${{ toJson(secrets) }}"
 
         - name: deploy
-          env:
-            FTP_SERVER:  ${{ secrets.FTP_SERVER }}
-            FTP_PORT: ${{ secrets.FTP_PORT }}
-            FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
-            FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
           uses: pressidium/lftp-mirror-action@v1
           with:
-            host: ${{ secrets.FTP_SERVER }}
-            port: ${{ secrets.FTP_PORT }}
-            user: ${{ secrets.FTP_USERNAME }}
-            pass: ${{ secrets.FTP_PASSWORD }}
+            host: ${{ sftp-deploy.secrets.FTP_SERVER }}
+            port: ${{ sftp-deploy.secrets.FTP_PORT }}
+            user: ${{ sftp-deploy.secrets.FTP_USERNAME }}
+            pass: ${{ sftp-deploy.secrets.FTP_PASSWORD }}
             localDir: './app/*'
             remoteDir: '/home/container/'
             reverse: true
